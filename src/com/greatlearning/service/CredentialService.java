@@ -33,13 +33,25 @@ public class CredentialService {
 		 
 		 char[] password = new char[8];
 		 for(int i=0;i<8;i++) {
-			 if(i==1)
-			 {
-				 
+			 if(i==1){
+				 int indx = rndm.nextInt(specialChars.length()) ;
+					password[i] = specialChars.charAt(indx);
+			 }
+			 else if(i==3){
+				 int indx = rndm.nextInt(capitalLetters.length()) ;
+					password[i] = capitalLetters.charAt(indx);
+			 }
+			 else if(i==5){
+				 int indx = rndm.nextInt(numbers.length()) ;
+					password[i] = numbers.charAt(indx);
+			 }
+			 else if(i==7){
+				 int indx = rndm.nextInt(smallLetters.length()) ;
+					password[i] = smallLetters.charAt(indx);
 			 }
 			 else {
-			int indx = rndm.nextInt(allowedChars.length()) ;
-			password[i] = allowedChars.charAt(indx);
+				int indx = rndm.nextInt(allowedChars.length()) ;
+				password[i] = allowedChars.charAt(indx);
 			 }
 		 }
 		 return new String(password);
